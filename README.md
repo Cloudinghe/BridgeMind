@@ -113,33 +113,46 @@ bridge_decision_robot/
 
 ## 开发进度
 
-### 当前状态：阶段1 - 项目基础设施搭建（Week 1）
+### 当前状态：阶段2 - 知识体系构建（Week 2-3）
 
-**已完成**：
-- ✅ 项目目录结构规划
-- ✅ .gitignore配置
-- ✅ 项目README文档
+**已完成（阶段1）**：
+- ✅ 核心数据模型（Card, Suit, Rank, Position, Contract, GameState）
+- ✅ 数据层基础（DatabaseManager, GameRepository, ProbabilityStorage）
+- ✅ 基础解析器（BridgeInputParser, BridgeDataValidator, BridgeDataNormalizer）
+- ✅ 71个单元测试，100%通过率
+
+**已完成（阶段2部分）**：
+- ✅ 牌型分布概率系统（CardDistributionProbability）
+- ✅ 专家规则引擎基础
+- ✅ 规则冲突解决器（RuleConflictResolver）
+- ✅ 基础专家规则库（10条核心规则）
+- ✅ 叫牌体系（自然、精确、蓝梅花）
 
 **进行中**：
-- 🔄 任务1.1：初始化项目结构和配置
-- ⏳ 任务1.2：实现核心数据模型
-- ⏳ 任务1.3：搭建数据层基础
-- ⏳ 任务1.4：实现基础解析器
+- 🔄 任务2.3：扩展专家规则库（50条规则）
+- ⏳ 任务2.4：实现特征提取器
 
 ### 计划进度
 
-| 阶段 | 内容 | 时间 | 状态 |
-|------|------|------|------|
-| 阶段1 | 项目基础设施搭建 | Week 1 | 🔄 进行中 |
-| 阶段2 | 知识体系构建 | Week 2-3 | ⏳ 计划中 |
-| 阶段3 | 概率引擎开发 | Week 4-5 | ⏳ 计划中 |
-| 阶段4 | MCTS搜索引擎 | Week 6-7 | ⏳ 计划中 |
-| 阶段5 | 推理引擎集成 | Week 8 | ⏳ 计划中 |
-| 阶段6 | 输出层实现 | Week 9 | ⏳ 计划中 |
-| 阶段7 | 强化学习框架 | Week 10-12 | ⏳ 计划中 |
-| 阶段8 | 系统集成优化 | Week 13-15 | ⏳ 计划中 |
-| 阶段9 | 测试和文档 | Week 16 | ⏳ 计划中 |
-| 阶段10 | 部署和监控 | 持续 | ⏳ 计划中 |
+| 阶段 | 内容 | 时间 | 状态 | 完成度 |
+|------|------|------|------|--------|
+| 阶段1 | 项目基础设施搭建 | Week 1 | ✅ 已完成 | 100% |
+| 阶段2 | 知识体系构建 | Week 2-3 | 🔄 进行中 | 50% |
+| 阶段3 | 概率引擎开发 | Week 4-5 | ⏳ 计划中 | 0% |
+| 阶段4 | MCTS搜索引擎 | Week 6-7 | ⏳ 计划中 | 0% |
+| 阶段5 | 推理引擎集成 | Week 8 | ⏳ 计划中 | 0% |
+| 阶段6 | 输出层实现 | Week 9 | ⏳ 计划中 | 0% |
+| 阶段7 | 强化学习框架 | Week 10-12 | ⏳ 计划中 | 0% |
+| 阶段8 | 系统集成优化 | Week 13-15 | ⏳ 计划中 | 0% |
+| 阶段9 | 测试和文档 | Week 16 | ⏳ 计划中 | 0% |
+| 阶段10 | 部署和监控 | 持续 | ⏳ 计划中 | 0% |
+
+### 版本历史
+
+| 版本 | 日期 | 说明 |
+|------|------|------|
+| v0.2.0-phase2-start | 2026-03-17 | 阶段2开始：专家规则引擎基础 |
+| v0.1.0-phase1 | 2026-03-17 | 阶段1完成：项目基础设施搭建 |
 
 ## 快速开始
 
@@ -152,8 +165,8 @@ bridge_decision_robot/
 
 ```bash
 # 克隆仓库
-git clone <repository-url>
-cd bridge_decision_robot
+git clone https://github.com/Cloudinghe/BridgeMind.git
+cd BridgeMind
 
 # 创建虚拟环境
 python -m venv venv
@@ -216,8 +229,8 @@ print(f"决策原因: {result.explanation}")
 
 ## 联系方式
 
-项目维护者：Bridge AI Bot
-邮箱：bridge-ai-bot@local.dev
+项目维护者：Cloudinghe
+GitHub：https://github.com/Cloudinghe/BridgeMind
 
 ## 致谢
 
