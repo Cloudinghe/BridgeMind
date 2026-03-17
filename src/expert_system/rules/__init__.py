@@ -6,9 +6,11 @@ Expert System Rules
 """
 
 from .basic_rules import get_basic_rules, OpeningRules, ResponseRules, TacticRules, SafetyRules
+from .extended_rules import get_extended_rules
 
 __all__ = [
     "get_basic_rules",
+    "get_extended_rules",
     "OpeningRules",
     "ResponseRules",
     "TacticRules",
