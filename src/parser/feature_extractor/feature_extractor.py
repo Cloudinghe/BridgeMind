@@ -4,7 +4,6 @@ Feature Extractor
 
 从游戏状态中提取对手特征、叫牌特征、打牌特征等
 """
-
 from typing import Dict, Any, List
 from abc import ABC, abstractmethod
 
@@ -79,7 +78,7 @@ class OpponentFeatureExtractor(BaseFeatureExtractor):
         aggressive_plays = 0
         for play in play_history:
             if play['player'] in context.get('opponents', []):
-                if play['is_attack'] or play['is_finesse']:
+                if play.get('is_attack', False) or play.get('is_finesse', False):
                     aggressive_plays += 1
         
         total_actions = len(bidding_history) + len(play_history)
@@ -156,9 +155,9 @@ class OpponentFeatureExtractor(BaseFeatureExtractor):
             return "unknown"
         
         # 统计打牌类型
-        finesse_count = sum(1 for play in opponent_plays if play['is_finesse'])
-        signal_count = sum(1 for play in opponent_plays if play['is_signal'])
-        attack_count = sum(1 for play in opponent_plays if play['is_attack'])
+        finesse_count = sum(1 for play in opponent_plays if play.get('is_finesse', False))
+        signal_count = sum(1 for play in opponent_plays if play.get('is_signal', False))
+        attack_count = sum(1 for play in opponent_plays if play.get('is_attack', False))
         
         total_plays = len(opponent_plays)
         
@@ -334,17 +333,18 @@ class BiddingFeatureExtractor(BaseFeatureExtractor):
     
     def _check_fitting(self, bidding_history: List[Dict[str, Any]]) -> bool:
         """
-        检查是否有配
+        检查是否有配合
         
         Args:
             bidding_history: 叫牌历史
             
         Returns:
-            是否有配
+            是否有配合
         """
         # 简化实现：如果找到了将牌花色
         for bid in bidding_history:
-            if bid['strain'] in ['S', 'H', 'D', 'C']:
+            strain = bid.get('strain')
+            if strain in ['S', 'H', 'D', 'C']:
                 return True
         return False
     
@@ -464,7 +464,7 @@ class PlayFeatureExtractor(BaseFeatureExtractor):
         
         return tactics
     
-    def _count_tricks_won(self, play_history: List[Dict[str, Any]) -> Dict[str, int]:
+    def _count_tricks_won(self, play_history: List[Dict[str, Any]]) -> Dict[str, int]:
         """
         统计赢墩数
         
