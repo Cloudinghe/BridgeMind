@@ -7,9 +7,14 @@ Bridge Knowledge System
 
 from .probability import CardDistributionProbability
 from .tactics import TacticPattern, FinesseTactic
+from .bidding_systems import BiddingSystem, NaturalBiddingSystem, PrecisionBiddingSystem, BlueClubBiddingSystem
 
 __all__ = [
     "CardDistributionProbability",
     "TacticPattern",
     "FinesseTactic",
+    "BiddingSystem",
+    "NaturalBiddingSystem",
+    "PrecisionBiddingSystem",
+    "BlueClubBiddingSystem",
 ]
